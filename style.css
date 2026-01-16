@@ -15,7 +15,7 @@ main {
     margin: 0 auto;
 }
 
-main>section {
+main > section {
     margin-top: 130px;
 }
 
@@ -58,7 +58,6 @@ main>section {
 .brand_name {
     font-weight: 700;
     font-size: 3rem;
-    /* 1rem = 16px */
 }
 
 .navbar {
@@ -109,6 +108,7 @@ main>section {
 .team {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .team-img {
@@ -131,8 +131,7 @@ main>section {
     font-weight: 500;
 }
 
-/* feature part  */
-
+/* Feature Part */
 .features-head {
     display: flex;
     margin: 0 auto;
@@ -150,16 +149,15 @@ main>section {
 
 .text {
     margin: 1.5rem 0 2rem;
-    width: 586px;
+    /* width: 586px; */
 }
 
 .card {
-    width: 586px;
+    width: auto;
     margin-bottom: 16px;
-    /* border: 1px solid #ff900E; */
     padding: 25px 45px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
-        -5px -5px 10px rgba(0, 0, 0, 0.1);
+                -5px -5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card-title {
@@ -167,13 +165,22 @@ main>section {
     font-weight: 600;
 }
 
-.features-img{
+.features-img {
     position: relative;
 }
-.btn-features{
+
+.btn-features {
     position: absolute;
     bottom: 18px;
     left: -30px;
+    border-radius: 8px;
+    padding: 42px;
+}
+
+#btn {
+    font-size: 40px;
+    font-weight: 600;
+    display: flex;
 }
 
 /* Facts Section */
@@ -182,7 +189,6 @@ main>section {
     grid-template-columns: repeat(4, 1fr);
     margin-top: 100px;
     gap: 20px;
-    /* added for spacing */
 }
 
 .fact {
@@ -224,6 +230,7 @@ main>section {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 /* Footer */
@@ -238,26 +245,15 @@ main>section {
     font-size: 20px;
 }
 
-.btn-features {
-    border-radius: 8px;
-    padding: 42px;
-}
-
-#btn {
-    font-size: 40px;
-    font-weight: 600;
-    display: flex;
-}
-
 /* Responsive Media Queries */
 
 /* Small devices */
 @media screen and (max-width: 576px) {
-
     .navbar,
     .nav-links,
     .team,
-    .sponsor-companies {
+    .sponsor-companies,
+    .features-head {
         flex-direction: column;
     }
 
@@ -275,18 +271,36 @@ main>section {
         margin: 24px;
     }
 
+    .card {
+        width: auto;
+        padding: 15px 25px;
+    }
+
+    .heading {
+        width: 50%;
+        font-size: 25px;
+    }
+
     .footer-text {
         margin: 50px auto;
     }
 
-    .footer-content {
+    .footer-content,
+    .text {
         padding: 38px 0;
+        width: 100%;
+    }
+
+    /* Hide features image on small devices */
+    .features-img {
+        display: none;
     }
 }
 
 /* Medium devices */
 @media screen and (min-width: 576px) and (max-width: 992px) {
-    .team, .features-head {
+    .team,
+    .features-head {
         flex-direction: column;
     }
 
@@ -296,5 +310,15 @@ main>section {
 
     .footer-text {
         margin: 20px auto;
+    }
+
+    /* Optional: shrink features image */
+    .features-img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .card {
+        padding: 15px 30px;
     }
 }
